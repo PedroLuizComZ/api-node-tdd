@@ -6,10 +6,10 @@
   "author": "Pedra1 <pe_lfsilva@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpileOnly --ignore-watch node_modules src/server.ts",
-    "test": "jest",
-    "build" : "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "start" : "node dist/server.js"
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
@@ -21,12 +21,14 @@
     "@types/jest": "^26.0.24",
     "babel-plugin-module-resolver": "^4.1.0",
     "jest": "^27.0.6",
+    "supertest": "^6.1.4",
     "ts-jest": "^27.0.4",
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1"
   }
 }
