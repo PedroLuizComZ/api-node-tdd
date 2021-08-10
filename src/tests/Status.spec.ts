@@ -2,6 +2,7 @@ import { app } from "../app";
 import request from "supertest";
 
 describe("Status Aplication", () => {
+
   it("should a return an request status code 200", async () => {
     const response = await request(app).get("/status");
 
@@ -13,7 +14,7 @@ describe("Status Aplication", () => {
 
     expect(response.body).toEqual(
       expect.objectContaining({
-        version: "1.0",
+        version: "v1.0.0",
       })
     );
   });
