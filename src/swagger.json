@@ -1,0 +1,99 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Api Documentation",
+    "description": "Api Documentation"
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/status/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/consulta/cpf/{cpf}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "security": [{ "apiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "cpf",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/consulta/telefone/{telephone}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "security": [{ "apiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "telephone",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/consulta/cnpj/{cnpj}": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "security": [{ "apiKeyAuth": [] }],
+        "parameters": [
+          {
+            "name": "cnpj",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}
