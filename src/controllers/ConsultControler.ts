@@ -32,7 +32,7 @@ export default {
   async findByTelephone(req: Request, res: Response) {
     const { telephone } = req.params;
 
-    if (telephone.length !== 13) {
+    if (telephone.length !== 11 && telephone.length !== 10) {
       return ErrorMessage(res, "Telephone format is invalid");
     }
 
