@@ -1,0 +1,71 @@
+{
+  "status": true,
+  "owner":
+  {
+    "id": "13",
+    "type_tx_id": "2",
+    "tx_id": "00331975041",
+    "name": "Matias Breunig",
+    "name_2": "Branco",
+    "postal_code": "30330-080",
+    "street": "Rua Raul Pompeia",
+    "street_type": "Rua",
+    "street_number": "369",
+    "address_complement": "",
+    "neighborhood": "Barreiro de Baixo",
+    "client": "1",
+    "email": "matias.breunig@gmail.com",
+    "birth_date": "16/05/1983",
+    "created": "2020-03-11 11:28:40",
+    "modified": "2020-03-11 11:28:40",
+    "phone": "",
+    "cell_phone_1":"(31)982132983",
+    "cell_phone_2":"",
+    "status": "Enabled"
+  },
+  "contact":
+    {
+      "id": "13",
+      "type_tx_id": "2",
+      "tx_id": "00331975041",
+      "name": "Matias Breunig",
+      "name_2": "Branco",
+      "postal_code": "30330-080",
+      "street": "Rua Raul Pompeia",
+      "street_type": "Rua",
+      "street_number": "369",
+      "address_complement": "",
+      "neighborhood": "Barreiro de Baixo",
+      "client": "1",
+      "email": "matias.breunig@gmail.com",
+      "birth_date": "16/05/1983",
+      "created": "2020-03-11 11:28:40",
+      "modified": "2020-03-11 11:28:40",
+      "phone": "",
+      "cell_phone_1":"(31)982132983",
+      "cell_phone_2":"",
+      "status": "Enabled"
+    },
+
+  "contracts": [
+        {
+          "id": "2",
+          "client_id": "13",
+          "contract_number": "1345",
+          "collection_day": "5",
+          "description": "Contrato 5379 - Contratos PF",
+          "date": "2021-08-07",
+          "beginning_date": "2021-08-07",
+          "final_date": "2022-08-07",
+          "amount": "109.00",
+          "status": "1",
+          "cancellation_date": "",
+          "end_date": "",
+          "created":"",
+          "modified":"2020-03-11 11:28:40",
+          "v_stage": "Em Aprovação",
+          "v_status": "Normal"
+        }
+      ]
+  }
+
