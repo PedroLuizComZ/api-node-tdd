@@ -17,7 +17,7 @@ export default {
     const lastNumbers = telephone.length === 10 ? telephone.substr(6, 9) : telephone.substr(7, 10)
 
     return await entityManager.query(
-      `SELECT p.phone from erp.people as p WHERE p.phone like '%${ddd}%${firstNumbers}%${lastNumbers}%' ' `
+      `SELECT p.phone from erp.people as p WHERE p.phone like '%${ddd}%${firstNumbers}%${lastNumbers}%' `
     );
   },
 
