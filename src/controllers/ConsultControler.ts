@@ -17,15 +17,23 @@ export default {
       return ErrorMessage(res, "Cpf format is invalid");
     }
 
-    const queryResult: Custumer[] = await ConsultService.getCustumerByCpf(cpf);
+    const custumerResult: Custumer[] = await ConsultService.getCustumerByCpf(cpf);
 
-    if (queryResult.length < 1) {
+    if (custumerResult.length < 1) {
       return ErrorMessage(res, "User not found");
     }
 
+    let contractResult = await ConsultService.getContractsByClientId(
+      custumerResult[0].id
+    );
+
     return res.json({
       status: true,
-      data: queryResult,
+      data: {
+        owner: custumerResult,
+        contact: custumerResult,
+        contracts: contractResult,
+      },
     });
   },
 
@@ -77,17 +85,26 @@ export default {
       return ErrorMessage(res, "CNPJ format is invalid");
     }
 
-    const queryResult: Custumer[] = await ConsultService.getCustumerByCNPJ(
+    const custumerResult: Custumer[] = await ConsultService.getCustumerByCNPJ(
       cnpj
     );
 
-    if (queryResult.length < 1) {
+    if (custumerResult.length < 1) {
       return ErrorMessage(res, "User not found");
     }
 
+    let contractResult = await ConsultService.getContractsByClientId(
+      custumerResult[0].id
+    );
+
     return res.json({
       status: true,
-      data: queryResult,
+      data: {
+        owner: custumerResult,
+        contact: custumerResult,
+        contracts: contractResult,
+      },
     });
+
   },
 };

@@ -5,7 +5,28 @@ export default {
     const entityManager = getManager();
 
     return await entityManager.query(
-      `SELECT * FROM custumer WHERE cpf like '${cpf}' `
+      `SELECT
+        p.id,
+        p.type_tx_id,
+        p.tx_id,
+        p.name,
+        p.name_2,
+        p.postal_code,
+        p.street,
+        p.street_type,
+        p.number,
+        p.address_complement,
+        p.neighborhood,
+        p.client,
+        p.email,
+        p.birth_date,
+        p.created,
+        p.modified,
+        p.phone,
+        p.cell_phone_1,
+        p.cell_phone_2,
+        p.status
+      from erp.people as p WHERE p.type_tx_id = 2 AND p.tx_id like '${cpf}' `
     );
   },
 
@@ -147,7 +168,28 @@ export default {
     const entityManager = getManager();
 
     return await entityManager.query(
-      `SELECT * FROM custumer WHERE cnpj like '${cnpj}' `
+      `SELECT
+        p.id,
+        p.type_tx_id,
+        p.tx_id,
+        p.name,
+        p.name_2,
+        p.postal_code,
+        p.street,
+        p.street_type,
+        p.number,
+        p.address_complement,
+        p.neighborhood,
+        p.client,
+        p.email,
+        p.birth_date,
+        p.created,
+        p.modified,
+        p.phone,
+        p.cell_phone_1,
+        p.cell_phone_2,
+        p.status
+      from erp.people as p WHERE p.type_tx_id = 1 AND p.tx_id like '${cnpj}' `
     );
   },
 };
