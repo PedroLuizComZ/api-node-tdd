@@ -7,7 +7,7 @@ const doc = {
     description:
       "Api Documentation",
   },
-  host: "api-dev.uneinternet.com.br:3333/",
+  host: "api-dev.uneinternet.com.br:3333",
   basePath: "/",
   schemes: ["http", "https"],
   consumes: ["application/json"],
