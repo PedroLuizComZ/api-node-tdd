@@ -36,27 +36,50 @@ export default {
       return ErrorMessage(res, "Telephone format is invalid");
     }
 
-    const queryResult: Custumer[] = await ConsultService.getCustumerByTelephone(telephone);
+    let custumerResult: Custumer[] =
+      await ConsultService.getCustumerByTelephone(telephone);
 
-    if (queryResult.length < 1) {
-      return ErrorMessage(res, "User not found");
+    if (custumerResult.length < 1) {
+      custumerResult = await ConsultService.getCustumerByCellPhonePrimary(
+        telephone
+      );
+
+      if (custumerResult.length < 1) {
+        custumerResult = await ConsultService.getCustumerByCellSecundary(
+          telephone
+        );
+
+        if (custumerResult.length < 1) {
+          return ErrorMessage(res, "User not found");
+        }
+      }
     }
+
+    let contractResult = await ConsultService.getContractsByClientId(
+      custumerResult[0].id
+    );
 
     return res.json({
       status: true,
-      data: queryResult,
+      data: {
+        owner: custumerResult,
+        contact: custumerResult,
+        contracts: contractResult,
+      },
     });
   },
 
   async findByCNPJ(req: Request, res: Response) {
     const { cnpj } = req.params;
-    console.log(cnpj)
+    console.log(cnpj);
 
     if (cnpj.length !== 14) {
       return ErrorMessage(res, "CNPJ format is invalid");
     }
 
-    const queryResult: Custumer[] = await ConsultService.getCustumerByCNPJ(cnpj);
+    const queryResult: Custumer[] = await ConsultService.getCustumerByCNPJ(
+      cnpj
+    );
 
     if (queryResult.length < 1) {
       return ErrorMessage(res, "User not found");
