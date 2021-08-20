@@ -75,6 +75,8 @@ export default {
       if (contractResult.length < 1) {
         const ownerId = await ConsultService.getContact(custumerResult[0].id);
 
+        console.log(ownerId)
+
         ownerUser = await ConsultService.getCustumerById(ownerId);
 
         contractResult = await ConsultService.getContractsByClientId(ownerId);
