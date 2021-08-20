@@ -76,8 +76,9 @@ export default {
         const ownerId = await ConsultService.getContact(custumerResult[0].id);
 
         console.log(ownerId)
+        console.log(ownerId[0].person_id)
 
-        ownerUser = await ConsultService.getCustumerById(ownerId);
+        ownerUser = await ConsultService.getCustumerById(ownerId[0].person_id);
 
         contractResult = await ConsultService.getContractsByClientId(ownerId);
       }
