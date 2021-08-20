@@ -75,12 +75,11 @@ export default {
       if (contractResult.length < 1) {
         const ownerId = await ConsultService.getContact(custumerResult[0].id);
 
-        console.log(ownerId)
-        console.log(ownerId[0].person_id)
+        const { person_id } = ownerId[0];
 
-        ownerUser = await ConsultService.getCustumerById(ownerId[0].person_id);
+        ownerUser = await ConsultService.getCustumerById(person_id);
 
-        contractResult = await ConsultService.getContractsByClientId(ownerId);
+        contractResult = await ConsultService.getContractsByClientId(person_id);
       }
       return res.json({
         status: true,
