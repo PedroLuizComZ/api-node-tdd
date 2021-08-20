@@ -69,12 +69,10 @@ export default {
       custumerResult[0].id
     );
 
-    let ownerUser = custumerResult;
+    let ownerUser : Custumer[] = custumerResult;
 
     if (contractResult.length < 1) {
       const ownerId = await ConsultService.getContact(custumerResult[0].id);
-
-      console.log(ownerId)
 
       ownerUser = await ConsultService.getCustumerById(ownerId);
 
@@ -84,8 +82,8 @@ export default {
     return res.json({
       status: true,
       data: {
-        owner: ownerUser,
-        contact: custumerResult,
+        owner: ownerUser[0],
+        contact: custumerResult[0],
         contracts: contractResult,
       },
     });
