@@ -67,6 +67,35 @@ export default {
     );
   },
 
+  async getCustumerById(id: number) {
+    const entityManager = getManager();
+
+    return await entityManager.query(
+      `SELECT
+        p.id,
+        p.type_tx_id,
+        p.tx_id,
+        p.name,
+        p.name_2,
+        p.postal_code,
+        p.street,
+        p.street_type,
+        p.number,
+        p.address_complement,
+        p.neighborhood,
+        p.client,
+        p.email,
+        p.birth_date,
+        p.created,
+        p.modified,
+        p.phone,
+        p.cell_phone_1,
+        p.cell_phone_2,
+        p.status
+      from erp.people as p WHERE p.id = ${id} `
+    );
+  },
+
   async getCustumerByCellPhonePrimary(telephone: string) {
     const entityManager = getManager();
 
@@ -192,6 +221,16 @@ export default {
       from erp.people as p WHERE p.type_tx_id = 1 AND p.tx_id like '${cnpj}' `
     );
   },
+
+  async getContact(id: number) {
+    const entityManager = getManager();
+
+    return await entityManager.query(
+      `SELECT p.person_id from erp.people_contacts as p where contact_id = ${id} `
+    );
+  },
+
+
 };
 
 
