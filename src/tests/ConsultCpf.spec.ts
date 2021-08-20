@@ -46,7 +46,7 @@ describe("Consult Cpf Route", () => {
 
   it("should return a message if user was not found", async () => {
     const response = await request(app)
-      .get("/consulta/cpf/00000000000")
+      .get("/consulta/cpf/99999999999")
       .set("Authorization", process.env.AUTH_KEY);
 
     expect(response.status).toBe(400);
@@ -60,23 +60,12 @@ describe("Consult Cpf Route", () => {
 
   it("should return user data if user was found", async () => {
     const response = await request(app)
-      .get("/consulta/cpf/43685476831")
+      .get("/consulta/cpf/29516244688")
       .set("Authorization", process.env.AUTH_KEY);
 
     expect(response.status).toBe(200);
-    expect(response.body).toEqual(
-      expect.objectContaining({
-        status: true,
-        data: [
-          {
-            id: 1,
-            cpf: "43685476831",
-            cnpj: "12345678901234",
-            telefone: "5511973187541",
-            nome: "Pedra1",
-          },
-        ],
-      })
-    );
+    expect(response.body.data).toHaveProperty("owner");
+    expect(response.body.data).toHaveProperty("contact");
+    expect(response.body.data).toHaveProperty("contracts");
   });
 });
