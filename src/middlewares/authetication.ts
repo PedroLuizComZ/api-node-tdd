@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import ErrorMessage from "src/utils/ErrorMessage";
+import ErrorMessage from "../utils/ErrorMessage";
 
 export default function (req: Request, res: Response, next: NextFunction) {
   const { authorization } = req.headers;
